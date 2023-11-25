@@ -10,7 +10,7 @@ background-color: ${theme.COLORS.BACKGROUND};
 padding: 24px;
 `
 
-export const Text = styled.Text`
+export const Title = styled.Text`
 color: ${theme.COLORS.WHITE};
 font-size: 32px;
 `
