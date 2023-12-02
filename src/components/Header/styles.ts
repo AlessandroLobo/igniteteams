@@ -1,6 +1,7 @@
-import { CaretLeft } from "phosphor-react-native";
 import styled from "styled-components/native";
 import theme from "../../theme";
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 
 export const Container = styled.View`
@@ -19,9 +20,12 @@ height: 55px;
 
 export const BackButton = styled.TouchableOpacity`
 
+flex: 1;
 `;
 
-export const BackIcon = styled(CaretLeft)`
-size: 32px;
-color:${theme.COLORS.WHITE};
+// Configura StyledIcon para receber o Icon do react-native-vector-icons usando font-awesome
+export const BackIcon = styled(Icon)`
+ font-size: 45px;
+ color: ${theme.COLORS.WHITE};
 `;
+
