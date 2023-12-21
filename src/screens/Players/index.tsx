@@ -9,52 +9,27 @@ import { useState } from "react";
 import { PlayerCard } from "../../components/PlayerCard";
 import { ListEmpty } from "../../components/ListEmpty";
 import { Button } from "../../components/Button";
+import { useRoute } from "@react-navigation/native";
 
 
-
+type RouteParams = {
+  group: string;
+}
 
 export function Players() {
   const [team, setTeam] = useState('Time A');
-  const [players, setPlayers] = useState([
-    // 'Alessandro',
-    // 'zemane',
-    // 'Diego',
-    // 'Celsinho',
-    // 'Gabriela',
-    // 'Fernandes',
-    // 'Mateus',
-    // 'Isabela',
-    // 'Ronaldo',
-    // 'Juliana',
-    // 'Leonardo',
-    // 'Carla',
-    // 'Victor',
-    // 'Mariana',
-    // 'Lucas',
-    // 'John',
-    // 'Emily',
-    // 'Michael',
-    // 'Sophia',
-    // 'Daniel',
-    // 'Olivia',
-    // 'David',
-    // 'Emma',
-    // 'Andrew',
-    // 'Ava',
-    // 'Matthew',
-    // 'Isabella',
-    // 'William',
-    // 'Mia',
-    // 'James',
-    // 'Charlotte'
-  ]);
+
+  const route = useRoute();
+  const { group } = route.params as RouteParams;
+
+  const [players, setPlayers] = useState([]);
 
   return (
     <Container>
       <Header showBackButton />
 
       <Highlight
-        title="Nome da turma"
+        title={group}
         subtitle="adicione a galera e separe os times"
       />
       <Form>
@@ -101,9 +76,9 @@ export function Players() {
         ]}
 
       />
-      <Button 
-      title="Remover Turma"
-      type="SECONDARY"
+      <Button
+        title="Remover Turma"
+        type="SECONDARY"
       />
     </Container>
   )

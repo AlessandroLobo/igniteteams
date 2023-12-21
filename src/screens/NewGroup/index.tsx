@@ -4,13 +4,16 @@ import { Header } from "../../components/Header";
 import { Highlight } from "../../components/Highlight";
 import { Input } from "../../components/Input";
 import { Container, Content, UsersThree } from "./styles";
+import { useState } from "react";
 
 
 export function NewGroup() {
+  const [group, setGroup] = useState('')
+
   const navigation = useNavigation();
 
   function handleNewGroup() {
-    navigation.navigate('players', { group: 'Rocket' });
+    navigation.navigate('players', { group });
   }
   return (
     <Container>
@@ -25,6 +28,7 @@ export function NewGroup() {
 
         <Input
           placeholder="Nome da Turma"
+          onChangeText={setGroup}
         />
 
         <Button
