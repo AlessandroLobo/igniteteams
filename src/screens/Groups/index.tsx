@@ -6,9 +6,17 @@ import { Container } from './styles';
 import { FlatList } from 'react-native';
 import { ListEmpty } from '../../components/ListEmpty';
 import { Button } from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 export function Groups() {
-  const [groups] = useState<string[]>(['Alessandro', 'lele'])
+  const [groups] = useState<string[]>([])
+
+  const navigation = useNavigation();
+
+
+  function handleNewGroup() {
+    navigation.navigate('newGroup');
+  }
 
   return (
     <Container>
@@ -33,6 +41,7 @@ export function Groups() {
       />
       <Button
         title='Criar nova turma'
+        onPress={handleNewGroup}
       />
     </Container>
   );
