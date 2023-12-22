@@ -5,6 +5,9 @@ import { Highlight } from "../../components/Highlight";
 import { Input } from "../../components/Input";
 import { Container, Content, UsersThree } from "./styles";
 import { useState } from "react";
+import { groupCreate } from "../../Storage/group/groupCreate";
+import { AppError } from "../../utils/AppError";
+import { Alert } from "react-native";
 
 
 export function NewGroup() {
@@ -12,9 +15,25 @@ export function NewGroup() {
 
   const navigation = useNavigation();
 
-  function handleNewGroup() {
-    navigation.navigate('players', { group });
+  async function handleNewGroup() {
+    try {
+
+      if (group.trim().length === 0) {
+        Alert.alert('Novo grupo', 'O nome do grupo é obrigatório');
+        return;
+      }
+
+      await groupCreate(group)
+      navigation.navigate('players', { group });
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert('Novo grupo', 'Ocorreu um erro ao criar o grupo');
+      } else {
+        console.log(error);
+      }
+    }
   }
+
   return (
     <Container>
       <Header showBackButton />
