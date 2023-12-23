@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GROUP_COLLECTION } from '../storageConfig';
 
 // Função assíncrona para recuperar todos os grupos armazenados
-export async function groupsGetAll() {
+export async function GroupsGetAll() {
   try {
     // Recuperando os grupos do AsyncStorage
     const storage = await AsyncStorage.getItem(GROUP_COLLECTION);

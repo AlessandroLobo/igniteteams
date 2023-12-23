@@ -8,9 +8,9 @@ type Props = TouchableOpacityProps & {
   type?: TButtonIconTypeStyleProps
 }
 
-export function ButtonIcon({ icon, type = 'PRIMARY', ...rest }: Props) {
+export function ButtonIcon({ icon, type = 'PRIMARY', onPress, activeOpacity = 0.5, ...rest }: Props) {
   return (
-    <Container>
+    <Container onPress={onPress} activeOpacity={activeOpacity} {...rest}>
       <Icon
         name={icon}
         type={type}

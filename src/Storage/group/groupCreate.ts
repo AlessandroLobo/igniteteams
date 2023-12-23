@@ -5,14 +5,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GROUP_COLLECTION } from '../storageConfig';
 
 // Importando a função groupsGetAll do arquivo groupsGetAll
-import { groupsGetAll } from './groupsGetAll';
+import { GroupsGetAll } from './groupsGetAll';
 import { AppError } from '../../utils/AppError';
 
 // Função assíncrona para criar um novo grupo
 export async function groupCreate(newGroup: string) {
   try {
     // Recuperando todos os grupos existentes
-    const storageGroups = await groupsGetAll();
+    const storageGroups = await GroupsGetAll();
     console.log(storageGroups)
     const groupAlreadyExists = storageGroups.includes(newGroup)
 
