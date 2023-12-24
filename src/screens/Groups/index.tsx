@@ -28,9 +28,10 @@ export function Groups() {
       console.log(data);
       setGroups(data);
 
-      setIsLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
