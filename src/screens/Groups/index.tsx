@@ -49,7 +49,7 @@ export function Groups() {
   return (
     <Container>
       <Header />
-      <Highlight title="Turmas" subtitle="jogue com a sua turma" />
+      <Highlight title="Turmas" subtitle="jogue com a sua Turma" />
 
       {isLoading ? <Loading /> :
         <FlatList
